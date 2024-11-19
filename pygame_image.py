@@ -16,6 +16,9 @@ def main():
     kk_rct = kk_img.get_rect()
     kk_rct.center = 300, 200
     tmr = 0
+    xmove_lst = [0, 0, -1, +2, 0]
+    ymove_lst = [-1, +1, 0, 0, 0]
+    lst_num = 4
 
     while True:
         for event in pg.event.get():
@@ -23,13 +26,15 @@ def main():
         key_lst = pg.key.get_pressed() 
 
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip(0, -1)
-        if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0, +1)
-        if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1, 0)
-        if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+2, 0)
+            lst_num = 0
+        elif key_lst[pg.K_DOWN]:
+            lst_num = 1
+        elif key_lst[pg.K_LEFT]:
+            lst_num = 2
+        elif key_lst[pg.K_RIGHT]:
+            lst_num = 3
+        kk_rct.move_ip(xmove_lst[lst_num], ymove_lst[lst_num])
+
         kk_rct.move_ip(-1, 0)
 
 
