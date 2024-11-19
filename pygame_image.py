@@ -18,13 +18,12 @@ def main():
     tmr = 0
     xmove_lst = [0, 0, -1, +2, 0]
     ymove_lst = [-1, +1, 0, 0, 0]
-    lst_num = 4
 
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed() 
-
+        lst_num = 4
         if key_lst[pg.K_UP]:
             lst_num = 0
         elif key_lst[pg.K_DOWN]:
